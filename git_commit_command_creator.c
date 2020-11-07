@@ -3,6 +3,11 @@
 #include <windows.h>
 
 /**
+ * CodeUp 홈페이지에서 제출한 코드를 다운로드 받은 뒤
+ * 프로그램을 실행하면 cmd 파일이 생성된다.
+ * 다운받은 .c 파일과 생성된 .cmd 파일을 모두 git 폴더로 복사한 뒤에
+ * cmd를 실행하면 자동으로 commit과 push를 완료해준다.
+ * 
  * C Program to list all files and sub-directories in a directory
  * https://www.geeksforgeeks.org/c-program-list-files-sub-directories-directory/
  */
@@ -44,6 +49,7 @@ int main(int argc, char **argv) {
     }
 
     closedir(dr);
+    fputs("git push origin master\n", fp);
     fputs("pause\n", fp);
     fclose(fp);
 
