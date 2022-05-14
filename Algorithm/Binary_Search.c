@@ -20,3 +20,26 @@ int Binary_Search(int arr[], int size, int value) {
   }
   return -1;
 }
+
+
+/**
+ * 매개변수로 배열을 복사하여 받아오지 않고, 포인터를 사용하여 검색하도록 수정함.
+ */
+#include <stdbool.h>
+
+bool binary_search(const int *array, int size, int value) {
+    int low = 0;
+    int high = size - 1;
+    int mid;
+    while (low <= high) {
+        mid = (low + high) / 2;
+        if (array[mid] == value) {
+            return true;
+        } else if (array[mid] < value) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return false;
+}
